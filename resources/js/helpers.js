@@ -18,7 +18,7 @@ exports.banner = (content, type) => {
 
     document.querySelectorAll('.alert').forEach(el => el.remove());
 
-    document.querySelector('main').prepend(this.html(`
+    document.querySelector('main header').after(this.html(`
         <div class="alert relative overflow-hidden shadow-md rounded py-2 px-4 ${background} text-white" id="alert-${uuid}">
             <div class="alert__progression absolute left-0 inset-y-0 transition-all bg-black opacity-20 z-0"></div>
 

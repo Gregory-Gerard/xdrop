@@ -51,7 +51,7 @@ document.querySelector('#retrieve').addEventListener('submit', async e => {
         return banner('Transfert introuvable', 'error');
     }
 
-    [...document.querySelectorAll('main > *')].forEach(el => el.classList.add('hidden'));
+    [...document.querySelectorAll('main > *:not(header)')].forEach(el => el.classList.add('hidden'));
 
     document.querySelector('main').append(html(`
         <div class="shadow-md rounded text-black bg-white p-4">
@@ -75,7 +75,7 @@ document.querySelector('#retrieve').addEventListener('submit', async e => {
         e.preventDefault();
 
         e.target.closest('.bg-white').remove();
-        [...document.querySelectorAll('main > *')].forEach(el => el.classList.remove('hidden'));
+        [...document.querySelectorAll('main > *:not(header)')].forEach(el => el.classList.remove('hidden'));
     })
 });
 
