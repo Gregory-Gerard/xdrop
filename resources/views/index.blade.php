@@ -6,6 +6,7 @@
 
         <title>xDrop</title>
 
+        <meta name="description" content="Transférez facilement des fichiers et récupérez les sur n'importe lequel de vos appareils avec un simple code. Simple, rapide, sans inscription et sans publicité !">
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
