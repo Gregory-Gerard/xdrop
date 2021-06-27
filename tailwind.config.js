@@ -1,5 +1,5 @@
 module.exports = {
-    mode: process.env.NODE_ENV ? 'jit' : undefined,
+    mode: 'jit',
     purge: [
         './resources/**/*.blade.php',
         './resources/**/*.js',
