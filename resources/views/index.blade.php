@@ -29,7 +29,7 @@
     <body class="grid place-items-center mx-4 h-screen font-serif text-sm text-white antialiased bg-gray-900">
         <main class="flex flex-col gap-4 my-4 w-full sm:w-96">
             <header class="flex justify-center">
-                <img src="{{ asset('/logo.png') }}" alt="Logo xDrop" title="xDrop" class="mr-4">
+                <img src="{{ asset('/logo.png') }}" alt="Logo xDrop" title="xDrop" class="w-16">
                 <h1 class="hidden">xDrop</h1>
             </header>
 
