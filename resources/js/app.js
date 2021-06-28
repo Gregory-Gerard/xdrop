@@ -44,7 +44,10 @@ document.querySelector('#send').addEventListener('click', async e => {
 
     if (!response) return;
 
-    banner(`C'est fait ! Voici votre code <strong class="block text-lg tracking-widest">${response.data.message}</strong>`, 'success');
+    banner(`
+        C'est fait ! Voici votre code <strong class="block text-lg tracking-widest">${response.data.message}</strong><br>
+        Disponible 10 minutes.
+    `, 'success');
 });
 
 document.querySelector('input[type="file"]').addEventListener('change', e => {

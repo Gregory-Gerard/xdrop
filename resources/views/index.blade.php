@@ -73,8 +73,12 @@
                     <label for="message" class="block mb-2 font-semibold">Entrez votre message</label>
                     <textarea id="message" class="block rounded border-gray-300 w-full text-xs" placeholder="Message optionnel (il est aussi possible de seulement transférer un message)"></textarea>
                 </div>
-                <div class="pb-4 px-4">
+                <div class="pb-4 px-4 text-center">
                     <button id="send" class="block w-full btn-indigo">Envoyer</button>
+
+                    <div class="flex items-center justify-center mt-2">
+                        <a href="https://github.com/Gregory-Gerard/xdrop/blob/main/README.md" target="_blank" class="text-xs text-gray-400 hover:underline">Comment ça marche ?</a>
+                    </div>
                 </div>
             </div>
 
