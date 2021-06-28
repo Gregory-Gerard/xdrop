@@ -47,7 +47,7 @@ document.addEventListener('xdrop@pageIndexLoaded', () => {
         if (!response) return;
 
         banner(`
-            C'est fait ! Voici votre code <strong class="block text-lg tracking-widest">${response.data.message}</strong><br>
+            C'est fait ! Voici votre code <strong class="block text-lg tracking-widest"><a href="${route(`retrieve/${response.data.message}`)}" class="hover:underline" target="_blank">${response.data.message}</a></strong><br>
             Disponible 10 minutes.
         `, 'success');
     });

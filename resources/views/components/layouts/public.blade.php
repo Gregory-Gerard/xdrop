@@ -45,6 +45,16 @@
     {{ $slot }}
 </main>
 
+<script>
+    const root = "{{ url('/') }}";
+
+    const route = (url) => {
+        if(url.indexOf(root) === 0) url = url.substr(root.length);
+        if (url.indexOf('/') === 0) url = url.substr(1);
+
+        return `${root}/${url}`;
+    }
+</script>
 <script src="{{ asset(mix('/js/app.js')) }}"></script>
 <script>document.dispatchEvent(new CustomEvent('xdrop@page{{ ucfirst($page) }}Loaded'))</script>
 </body>
