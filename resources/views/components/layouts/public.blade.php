@@ -38,7 +38,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Style -->
-    <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset(mix('/css/app.css')) }}">
 </head>
 <body class="grid md:place-items-center mx-4 h-screen font-serif text-sm text-white antialiased bg-gray-900">
 <main class="flex flex-col gap-4 my-4 w-full sm:w-96">
