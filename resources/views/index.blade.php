@@ -71,7 +71,7 @@
                 <hr>
                 <div class="p-4">
                     <label for="message" class="block mb-2 font-semibold">Entrez votre message</label>
-                    <textarea id="message" class="block rounded border-gray-300 w-full"></textarea>
+                    <textarea id="message" class="block rounded border-gray-300 w-full text-xs" placeholder="Message optionnel (il est aussi possible de seulement transférer un message)"></textarea>
                 </div>
                 <div class="pb-4 px-4">
                     <button id="send" class="block w-full btn-indigo">Envoyer</button>
