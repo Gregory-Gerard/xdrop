@@ -19,6 +19,20 @@
         <meta name="msapplication-TileColor" content="#111827">
         <meta name="theme-color" content="#111827">
 
+        <!-- Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://xdrop.gregory-gerard.dev/">
+        <meta property="og:title" content="xDrop">
+        <meta property="og:description" content="Transférez facilement des fichiers et récupérez les sur n'importe lequel de vos appareils avec un simple code. Simple, rapide, sans inscription et sans publicité !">
+        <meta property="og:image" content="{{ asset('/card.jpg') }}">
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://xdrop.gregory-gerard.dev/">
+        <meta property="twitter:title" content="xDrop">
+        <meta property="twitter:description" content="Transférez facilement des fichiers et récupérez les sur n'importe lequel de vos appareils avec un simple code. Simple, rapide, sans inscription et sans publicité !">
+        <meta property="twitter:image" content="{{ asset('/card.jpg') }}">
+
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
