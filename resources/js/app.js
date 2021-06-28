@@ -33,6 +33,9 @@ document.querySelector('#send').addEventListener('click', async e => {
             case 413:
                 banner('Fichier trop gros (1 GB max.)', 'error');
                 break;
+            case 429:
+                banner('Maximum 5 envois par minute', 'error');
+                break;
             default:
                 banner(e.response.statusText ?? 'Une erreur est survenue', 'error');
                 break;

@@ -51,7 +51,7 @@ Route::post('/upload', function (\Illuminate\Http\Request $request) {
     }
 
     return response()->json(['message' => $code]);
-});
+})->middleware('throttle:5,1');
 
 Route::get('/retrieve/{code}', function (string $code) {
     $transfer = \App\Models\Transfer::where('code', $code)->orderBy('type', 'desc');
