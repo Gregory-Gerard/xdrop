@@ -16,14 +16,30 @@ document.querySelector('#send').addEventListener('click', async e => {
     formData.append('message', message);
     [...files].forEach(file => formData.append('files[]', file));
 
-    const response = await axios.post('upload', formData, {
-        headers: {
-            'Content-Type': 'multipart/form-data'
-        },
-        onUploadProgress: progressEvent => {
-            uploadingMessage.updateProgression(Math.round(progressEvent.loaded/progressEvent.total*100));
+    let response = null;
+    try {
+        response = await axios.post('upload', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            },
+            onUploadProgress: progressEvent => {
+                uploadingMessage.updateProgression(Math.round(progressEvent.loaded/progressEvent.total*100));
+            }
+        });
+    } catch (e) {
+        if (!e.response) return banner('Une erreur est survenue', 'error');
+
+        switch (e.response.status) {
+            case 413:
+                banner('Fichier trop gros (1 GB max.)', 'error');
+                break;
+            default:
+                banner(e.response.statusText ?? 'Une erreur est survenue', 'error');
+                break;
         }
-    });
+    }
+
+    if (!response) return;
 
     banner(`C'est fait ! Voici votre code <strong class="block text-lg tracking-widest">${response.data.message}</strong>`, 'success');
 });
