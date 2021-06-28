@@ -57,14 +57,18 @@ Route::post('/upload', function (\Illuminate\Http\Request $request) {
     return response()->json(['message' => $code]);
 })->middleware('throttle:5,1');
 
-Route::get('/retrieve/{code}', function (string $code) {
+Route::get('/retrieve/{code}', function (string $code, \Illuminate\Http\Request $request) {
     $transfer = \App\Models\Transfer::where('code', $code)->orderBy('type', 'desc');
 
     if (!$transfer->exists()) abort(404);
 
     $transfer = $transfer->get();
 
-    return \App\Http\Resources\TransferResource::collection($transfer);
+    if ($request->ajax()) {
+        return \App\Http\Resources\TransferResource::collection($transfer);
+    }
+
+    return view('retrieve')->with('transfer', $transfer);
 })->middleware('throttle');
 
 Route::get('/retrieve/{code}/download/{id}', function (string $code, int $id) {
