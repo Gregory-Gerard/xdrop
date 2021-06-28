@@ -66,5 +66,14 @@ Route::get('/retrieve/{code}', function (string $code) {
 Route::get('/retrieve/{code}/download/{id}', function (string $code, int $id) {
     $file = \App\Models\Transfer::where('code', $code)->where('id', $id)->firstOrFail();
 
-    return Storage::download($file->content, $file->original_name);
+    return response()->redirectTo(
+        Storage::temporaryUrl(
+            $file->content,
+            now()->addMinutes(5),
+            [
+                'ResponseContentType' => 'application/octet-stream',
+                'ResponseContentDisposition' => "attachment; filename={$file->original_name}",
+            ]
+        )
+    );
 });
