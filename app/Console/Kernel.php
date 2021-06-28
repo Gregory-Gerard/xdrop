@@ -27,10 +27,11 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function () {
-            $transfers = Transfer::where('created_at', '<', Carbon::now()->subMinutes(10));
+            Transfer::where('type', 'message')->where('created_at', '<', Carbon::now()->subMinutes(10))->delete();
 
-            \Storage::delete($transfers->where('type', 'file')->get()->pluck('content')->all());
-            $transfers->delete();
+            $oldFiles = Transfer::where('type', 'file')->where('created_at', '<', Carbon::now()->subMinutes(10));
+            \Storage::delete($oldFiles->get()->pluck('content')->all());
+            $oldFiles->delete();
         })->everyMinute();
     }
 
