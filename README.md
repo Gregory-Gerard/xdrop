@@ -1,6 +1,6 @@
 <div align="center">
     <img src="https://user-images.githubusercontent.com/56580353/123561797-d3a2b500-d7aa-11eb-928b-8adb1b89e51d.png">
-    <p>https://xdrop.gregory-gerard.dev/</p>
+    <p>https://xdrop.fr/</p>
 </div>
 
 # xDrop
