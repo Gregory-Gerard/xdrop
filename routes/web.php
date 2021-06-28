@@ -26,7 +26,11 @@ Route::post('/upload', function (\Illuminate\Http\Request $request) {
         'message.required_without' => "Fichier(s) ou message requis !",
     ]);
 
-    $code = mt_rand(1000, 9999);
+    $otherTransfers = \App\Models\Transfer::all();
+
+    do {
+        $code = mt_rand(1000, 9999);
+    } while ($otherTransfers->contains('code', $code));
 
     if ($request->has('files') && $request->file('files')) {
         foreach ($request->file('files') as $file) {
