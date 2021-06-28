@@ -83,10 +83,10 @@
                     <div class="p-4">
                         <label class="block mb-2 font-semibold">Vous avez un code de récupération ?</label>
                         <div class="grid grid-cols-4 gap-4">
-                            <input type="text" class="block rounded border-gray-300 text-center" maxlength="1" aria-label="Premier numéro">
-                            <input type="text" class="block rounded border-gray-300 text-center" maxlength="1" aria-label="Deuxième numéro">
-                            <input type="text" class="block rounded border-gray-300 text-center" maxlength="1" aria-label="Troisième numéro">
-                            <input type="text" class="block rounded border-gray-300 text-center" maxlength="1" aria-label="Quatrième numéro">
+                            <input type="text" class="block rounded border-gray-300 text-center" maxlength="1" pattern="[0-9]*" inputmode="numeric" aria-label="Premier numéro">
+                            <input type="text" class="block rounded border-gray-300 text-center" maxlength="1" pattern="[0-9]*" inputmode="numeric" aria-label="Deuxième numéro">
+                            <input type="text" class="block rounded border-gray-300 text-center" maxlength="1" pattern="[0-9]*" inputmode="numeric" aria-label="Troisième numéro">
+                            <input type="text" class="block rounded border-gray-300 text-center" maxlength="1" pattern="[0-9]*" inputmode="numeric" aria-label="Quatrième numéro">
                         </div>
                     </div>
                     <div class="pb-4 px-4">
