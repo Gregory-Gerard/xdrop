@@ -56,7 +56,7 @@ document.addEventListener('xdrop@pageIndexLoaded', () => {
             }
         }
 
-        if (!response) return;
+        if (!response || response instanceof Error) return;
 
         banner(`
             C'est fait ! Voici votre code <strong class="block text-lg tracking-widest"><a href="${route(`retrieve/${response.data.message}`)}" class="hover:underline" target="_blank">${response.data.message}</a></strong><br>
