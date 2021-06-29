@@ -12,6 +12,8 @@ document.addEventListener('xdrop@pageIndexLoaded', () => {
 
         if (files.length === 0 && message.trim() === '') return banner('Fichier(s) ou message requis !', 'error');
 
+        document.querySelector('#send').disabled = true;
+
         const uploadingMessage = banner(`En cours d'envoi`, 'info');
 
         const formData = new FormData();
@@ -50,6 +52,7 @@ document.addEventListener('xdrop@pageIndexLoaded', () => {
             C'est fait ! Voici votre code <strong class="block text-lg tracking-widest"><a href="${route(`retrieve/${response.data.message}`)}" class="hover:underline" target="_blank">${response.data.message}</a></strong><br>
             Disponible 10 minutes.
         `, 'success');
+        document.querySelector('#send').disabled = false;
     });
 
     document.querySelector('input[type="file"]').addEventListener('change', e => {
