@@ -28,9 +28,19 @@ document.addEventListener('xdrop@pageIndexLoaded', () => {
                 },
                 onUploadProgress: progressEvent => {
                     uploadingMessage.updateProgression(Math.round(progressEvent.loaded / progressEvent.total * 100));
+
+                    if (Math.round(progressEvent.loaded / progressEvent.total * 100) === 100) {
+                        setTimeout(() => {
+                            if (response) return;
+
+                            banner(`Transfert en cours de traitement...`, 'info').updateProgression(100);
+                        }, 2500);
+                    }
                 }
             });
         } catch (e) {
+            response = e;
+
             if (!e.response) return banner('Une erreur est survenue', 'error');
 
             switch (e.response.status) {
