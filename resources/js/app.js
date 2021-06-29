@@ -62,6 +62,10 @@ document.addEventListener('xdrop@pageIndexLoaded', () => {
             C'est fait ! Voici votre code <strong class="block text-lg tracking-widest"><a href="${route(`retrieve/${response.data.message}`)}" class="hover:underline" target="_blank">${response.data.message}</a></strong><br>
             Disponible 10 minutes.
         `, 'success');
+
+        document.querySelector('input[type="file"]').value = '';
+        document.querySelector('input[type="file"]').dispatchEvent(new Event('change'));
+        document.querySelector('textarea').value = '';
         document.querySelector('#send').disabled = false;
     });
 
