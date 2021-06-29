@@ -34,16 +34,16 @@ Route::post('/upload', function (\Illuminate\Http\Request $request) {
 
     if ($request->has('files') && $request->file('files')) {
         foreach ($request->file('files') as $file) {
-            $path = $file->store('files');
+            $path = Storage::putFile('files', $file);
 
             $transfer = new \App\Models\Transfer();
             $transfer->type = 'file';
             $transfer->original_name = $file->getClientOriginalName();
             $transfer->content = $path;
             $transfer->code = $code;
+            $transfer->size = $file->getSize();
             $transfer->saveOrFail();
         }
-
     }
 
     if ($request->has('message') && $request->input('message')) {
