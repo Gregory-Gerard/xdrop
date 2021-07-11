@@ -3,11 +3,23 @@ const { banner, plural, html } = require('./helpers');
 
 /** region Page index */
 document.addEventListener('xdrop@pageIndexLoaded', () => {
+    if (!document.cookie.includes('xdrop_11072021')) {
+        banner('🎉 Nouveau ! Déposez directement vos fichiers via un drag & drop ou un copier-coller', 'info');
+
+        document.cookie = "xdrop_11072021=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";
+    }
+
+    let filesToUpload = [];
+    const handleFiles = (files) => {
+        document.querySelector('label[for="files"] span').textContent = files.length !== 0 ? `${files.length} ${plural('fichier', files.length)} ${plural('sélectionné', files.length)}` : 'Ajoutez vos fichiers';
+        filesToUpload = files;
+    }
+
     /** region Envoi sur le serveur des fichiers et / ou du message */
     document.querySelector('#send').addEventListener('click', async e => {
         e.preventDefault();
 
-        const files = document.querySelector('input[type="file"]').files;
+        const files = filesToUpload;
         const message = document.querySelector('textarea').value;
 
         if (files.length === 0 && message.trim() === '') return banner('Fichier(s) ou message requis !', 'error');
@@ -69,11 +81,7 @@ document.addEventListener('xdrop@pageIndexLoaded', () => {
         document.querySelector('#send').disabled = false;
     });
 
-    document.querySelector('input[type="file"]').addEventListener('change', e => {
-        const el = e.target;
-
-        document.querySelector('label[for="files"] span').textContent = el.files.length !== 0 ? `${el.files.length} ${plural('fichier', el.files.length)} ${plural('sélectionné', el.files.length)}` : 'Ajoutez vos fichiers';
-    });
+    document.querySelector('input[type="file"]').addEventListener('change', e => handleFiles(e.target.files));
     /** endregion */
 
     /** region Récupération des fichiers et / ou du message via le code */
@@ -106,6 +114,47 @@ document.addEventListener('xdrop@pageIndexLoaded', () => {
         document.querySelectorAll('#retrieve input[type="text"]').forEach((el, i) => el.value = code[i]);
         document.querySelector('#retrieve__btn').focus()
     }));
+    /** endregion */
+
+    /** region Drop des fichiers */
+    const dropArea = document.querySelector('body');
+    const dropInfo = document.querySelector('#hightlight');
+
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+        }, false);
+    });
+
+    ['dragenter', 'dragover'].forEach(eventName => {
+        dropArea.addEventListener(eventName, () => {
+            document.querySelector('main').classList.add('pointer-events-none');
+            dropInfo.classList.remove('hidden')
+        }, false);
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, () => {
+            document.querySelector('main').classList.remove('pointer-events-none');
+            dropInfo.classList.add('hidden')
+        }, false);
+    });
+
+    dropArea.addEventListener('drop', (e) => handleFiles(e.dataTransfer.files), false)
+    /** endregion */
+
+    /** region Paste des fichiers */
+    document.addEventListener('paste', (e) => {
+        let files = [];
+        const items = (e.clipboardData || e.originalEvent.clipboardData).items;
+
+        for (const item of items) {
+            files.push(item.getAsFile());
+        }
+
+        handleFiles(files);
+    });
     /** endregion */
 
     /** region eg */

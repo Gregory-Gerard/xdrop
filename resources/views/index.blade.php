@@ -1,6 +1,10 @@
 <x-layouts.public>
     <x-slot name="page">index</x-slot>
 
+    <div id="hightlight" class="hidden fixed inset-0 grid place-items-center bg-gray-900 opacity-90">
+        <strong class="text-4xl">Déposez vos fichiers</strong>
+    </div>
+
     <header class="flex justify-center">
         <img src="{{ asset('/logo.png') }}" alt="Logo xDrop" title="xDrop" class="w-16">
         <h1 class="hidden">xDrop</h1>
