@@ -9,7 +9,12 @@ Application de transfert de fichiers (ou de texte), rapide, simple, sans inscrip
 
 ## Comment ça marche ?
 
-Il suffit d'envoyer des fichiers, puis grâce à un code à 4 chiffres généré, il est possible de récupérer les fichiers sur n'importe quel appareil dans une fenêtre de temps de 10 minutes.
+Il suffit d'envoyer des fichiers :
+- en cliquant sur ajoutez vos fichiers,
+- en glissant des fichiers sur la fenêtre de xDrop,
+- en collant des fichiers (des screenshots par exemple, avec `ctrl+v`)
+
+Une fois vos fichiers envoyés, grâce à un code à 4 chiffres généré, il est possible de récupérer les fichiers sur n'importe quel appareil dans une fenêtre de temps de 10 minutes.
 
 ## Mais encore ?
 
