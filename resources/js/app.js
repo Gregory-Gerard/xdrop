@@ -145,9 +145,9 @@ document.addEventListener('xdrop@pageIndexLoaded', () => {
 });
 /** endregion */
 
-/** region Page index */
+/** region Page retrieve */
 document.addEventListener('xdrop@pageRetrieveLoaded', () => {
-    document.querySelector('pre').addEventListener('click', e => {
+    document.querySelector('pre')?.addEventListener('click', e => {
         const el = e.target.closest('pre');
 
         if (document.body.createTextRange) {
