@@ -150,10 +150,12 @@ document.addEventListener('xdrop@pageIndexLoaded', () => {
         const items = (e.clipboardData || e.originalEvent.clipboardData).items;
 
         for (const item of items) {
+            if (item.kind !== 'file') continue;
+
             files.push(item.getAsFile());
         }
 
-        handleFiles(files);
+        if (files.length > 0) handleFiles(files);
     });
     /** endregion */
 
