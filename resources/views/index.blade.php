@@ -28,7 +28,7 @@
                     <line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line>
                 </svg>
 
-                <span>Ajoutez vos fichiers</span>
+                <span class="flex flex-col md:flex-row md:items-center md:gap-4">Ajoutez vos fichiers <small class="font-thin text-xs text-gray-600">(10 GB max.)</small></span>
             </label>
         </div>
         <hr>

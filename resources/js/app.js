@@ -3,10 +3,10 @@ const { banner, plural, html } = require('./helpers');
 
 /** region Page index */
 document.addEventListener('xdrop@pageIndexLoaded', () => {
-    if (!document.cookie.includes('xdrop_11072021')) {
-        banner('🎉 Nouveau ! Déposez directement vos fichiers via un drag & drop ou un copier-coller', 'info');
+    if (!document.cookie.includes('xdrop_29112021')) {
+        banner('🎉 Nouveau ! La taille limite est de 10 GB désormais.', 'info');
 
-        document.cookie = "xdrop_11072021=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";
+        document.cookie = "xdrop_29112021=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";
     }
 
     let filesToUpload = [];
@@ -57,7 +57,7 @@ document.addEventListener('xdrop@pageIndexLoaded', () => {
 
             switch (e.response.status) {
                 case 413:
-                    banner('Fichier trop gros (1 GB max.)', 'error');
+                    banner('Fichier trop gros (10 GB max.)', 'error');
                     break;
                 case 429:
                     banner('Maximum 5 envois par minute', 'error');
