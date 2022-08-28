@@ -57,5 +57,9 @@
 </script>
 <script src="{{ asset(mix('/js/app.js')) }}"></script>
 <script>document.dispatchEvent(new CustomEvent('xdrop@page{{ ucfirst($page) }}Loaded'))</script>
+
+@production
+    <script async defer data-website-id="2927cb9d-7c65-40b9-8a7c-9548cb26e960" src="https://umami.gregory-gerard.dev:81/630abdb504d2a.js"></script>
+@endproduction
 </body>
 </html>
