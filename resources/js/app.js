@@ -1,12 +1,12 @@
 require('./bootstrap');
-const { banner, plural, html } = require('./helpers');
+const { banner, plural } = require('./helpers');
 
 /** region Page index */
 document.addEventListener('xdrop@pageIndexLoaded', () => {
-    if (!document.cookie.includes('xdrop_29112021')) {
-        banner('🎉 Nouveau ! La taille limite est de 10 GB désormais.', 'info');
+    if (!document.cookie.includes('xdrop_03122022')) {
+        banner('🎉 Nouveau ! Les transferts restent disponibles 1 heure au lieu de 10 minutes.', 'info');
 
-        document.cookie = "xdrop_29112021=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";
+        document.cookie = "xdrop_03122022=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";
     }
 
     let filesToUpload = [];

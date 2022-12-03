@@ -14,10 +14,10 @@ Il suffit d'envoyer des fichiers :
 - en glissant des fichiers sur la fenêtre de xDrop,
 - en collant des fichiers (des screenshots par exemple, avec `ctrl+v`)
 
-Une fois vos fichiers envoyés, grâce à un code à 4 chiffres généré, il est possible de récupérer les fichiers sur n'importe quel appareil dans une fenêtre de temps de 10 minutes.
+Une fois vos fichiers envoyés, grâce à un code à 4 chiffres généré, il est possible de récupérer les fichiers sur n'importe quel appareil dans une fenêtre de temps d'1 heure.
 
 ## Mais encore ?
 
 - Limite à 10 GB par envoi
-- Auto-suppression sous 10 minutes (le but étant de se transférer des fichiers à soi-même, ça me semble largement suffisant)
-- Et c'est tout, pas de blabla ou de premium inutile. Vous envoyez des fichiers et vous les récupérez, facilement.
+- Auto-suppression sous 1 heure (le but étant de se transférer des fichiers à soi-même ou encore dans l'open-space)
+- Et c'est tout. Vous envoyez des fichiers et vous les récupérez, facilement.

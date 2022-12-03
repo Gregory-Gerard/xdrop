@@ -28,6 +28,8 @@ return [
 
     'env' => env('APP_ENV', 'production'),
 
+    'flush_transfers_after_n_minutes' => 60,
+
     /*
     |--------------------------------------------------------------------------
     | Application Debug Mode

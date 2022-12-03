@@ -27,9 +27,11 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function () {
-            Transfer::where('type', 'message')->where('created_at', '<', Carbon::now()->subMinutes(10))->delete();
+            $dateToFlush = Carbon::now()->subMinutes(config('app.flush_transfers_after_n_minutes'));
 
-            $oldFiles = Transfer::where('type', 'file')->where('created_at', '<', Carbon::now()->subMinutes(10));
+            Transfer::where('type', 'message')->where('created_at', '<', $dateToFlush)->delete();
+
+            $oldFiles = Transfer::where('type', 'file')->where('created_at', '<', $dateToFlush);
             \Storage::delete($oldFiles->get()->pluck('content')->all());
             $oldFiles->delete();
         })->everyMinute();

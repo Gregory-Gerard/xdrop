@@ -41,7 +41,7 @@
     <link rel="stylesheet" href="{{ asset(mix('/css/app.css')) }}">
 </head>
 <body class="grid md:place-items-center mx-4 h-screen font-serif text-sm text-white antialiased bg-gray-900">
-<main class="flex flex-col gap-4 my-4 w-full md:w-96">
+<main class="flex flex-col gap-4 my-4 w-full md:max-w-screen-sm">
     {{ $slot }}
 </main>
 
