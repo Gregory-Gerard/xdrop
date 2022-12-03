@@ -142,19 +142,17 @@ document.addEventListener('xdrop@pageIndexLoaded', () => {
 
     ['dragenter', 'dragover'].forEach(eventName => {
         dropArea.addEventListener(eventName, () => {
-            document.querySelector('main').classList.add('pointer-events-none');
             dropInfo.classList.remove('hidden')
         }, false);
     });
 
     ['dragleave', 'drop'].forEach(eventName => {
-        dropArea.addEventListener(eventName, () => {
-            document.querySelector('main').classList.remove('pointer-events-none');
+        dropInfo.addEventListener(eventName, () => {
             dropInfo.classList.add('hidden')
         }, false);
     });
 
-    dropArea.addEventListener('drop', (e) => handleFiles(e.dataTransfer.files), false)
+    dropInfo.addEventListener('drop', (e) => handleFiles(e.dataTransfer.files), false)
     /** endregion */
 
     /** region Paste des fichiers */

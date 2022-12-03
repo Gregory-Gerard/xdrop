@@ -1,8 +1,8 @@
 <x-layouts.public>
     <x-slot name="page">index</x-slot>
 
-    <div id="hightlight" class="hidden fixed inset-0 grid place-items-center bg-gray-900 opacity-90">
-        <strong class="text-4xl">Déposez vos fichiers</strong>
+    <div id="hightlight" class="hidden fixed z-10 inset-0 grid place-items-center bg-gray-900 opacity-90">
+        <strong class="text-4xl pointer-events-none">Déposez vos fichiers</strong>
     </div>
 
     <header class="flex justify-center">
