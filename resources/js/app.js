@@ -71,7 +71,20 @@ document.addEventListener('xdrop@pageIndexLoaded', () => {
         if (!response || response instanceof Error) return;
 
         banner(`
-            C'est fait ! Voici votre code <strong class="block text-lg tracking-widest"><a href="${route(`retrieve/${response.data.message}`)}" class="hover:underline" target="_blank">${response.data.message}</a></strong><br>
+            C'est fait ! Voici votre code <strong class="block text-lg tracking-widest"><a href="${route(`retrieve/${response.data.message}`)}" class="hover:underline" target="_blank">${response.data.message}</a></strong>
+            ${navigator.canShare && navigator.canShare({ url: `${route(`retrieve/${response.data.message}`)}`}) ? `
+            <br>
+            <span class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share">
+                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                    <polyline points="16 6 12 2 8 6"></polyline>
+                    <line x1="12" y1="2" x2="12" y2="15"></line>
+                </svg>
+                <button onclick="navigator.share({ url: '${route(`retrieve/${response.data.message}`)}'})" class="font-bold">Partager le lien</button>
+            </span>
+            ` : ''}
+            <br>
             Disponible 10 minutes.
         `, 'success');
 
