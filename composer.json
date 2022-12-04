@@ -10,7 +10,7 @@
     "require": {
         "php": "^8.1",
         "guzzlehttp/guzzle": "^7.5",
-        "laravel/framework": "^9.19",
+        "laravel/framework": "^9.42",
         "laravel/tinker": "^2.7",
         "league/flysystem-aws-s3-v3": "^3.10.3"
     },
