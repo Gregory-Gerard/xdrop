@@ -100,6 +100,8 @@ jobs:
             php artisan config:cache
             php artisan route:cache
             php artisan view:cache
+            php artisan storage:link
+            php artisan migrate --force
             chown -R www-data:www-data .
             find . -type f -exec chmod 644 -- {} +
             find . -type d -exec chmod 755 -- {} +
