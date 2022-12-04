@@ -25,8 +25,7 @@ jobs:
 
       - name: Get Composer Cache Directory
         id: composer-cache
-        run: |
-          echo "::set-output name=dir::$(composer config cache-files-dir)"
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
       - name: Set up dependency caching for faster installs
         uses: actions/cache@v3
@@ -50,11 +49,14 @@ jobs:
           npm install
           npm run build
 
+      - name: Zip artifact
+        run: zip artifact.zip ./* -r
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
-          name: php-app
-          path: .
+          name: app
+          path: artifact.zip
 
   deploy:
     permissions:
@@ -69,4 +71,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: php-app
+          name: app
+
+      - name: Unzip artifact
+        run: unzip artifact.zip
