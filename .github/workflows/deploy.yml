@@ -74,7 +74,7 @@ jobs:
           name: app
 
       - name: Unzip artifact
-        run: unzip artifact.zip -q
+        run: unzip  -q artifact.zip
 
       - name: Rsync
         uses: burnett01/rsync-deployments@5.2.1
