@@ -83,7 +83,7 @@ export default function () {
             </span>
             ` : ''}
             <br>
-            Disponible 10 minutes.
+            Disponible 1 heure.
         `, 'success');
 
         document.querySelector('input[type="file"]').value = '';
