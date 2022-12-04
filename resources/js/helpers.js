@@ -1,6 +1,6 @@
-const { v4: uuidv4 } = require('uuid');
+import { v4 as uuidv4 } from 'uuid';
 
-exports.banner = (content, type) => {
+export const banner = (content, type) => {
     const uuid = uuidv4();
     let background;
 
@@ -18,7 +18,7 @@ exports.banner = (content, type) => {
 
     document.querySelectorAll('.alert').forEach(el => el.remove());
 
-    document.querySelector('main header').after(this.html(`
+    document.querySelector('main header').after(html(`
         <div class="alert relative overflow-hidden shadow-md rounded py-2 px-4 ${background} text-white" id="alert-${uuid}">
             <div class="alert__progression absolute left-0 inset-y-0 transition-all bg-black opacity-20 z-0"></div>
 
@@ -59,11 +59,11 @@ exports.banner = (content, type) => {
     };
 }
 
-exports.plural = (word, number) => {
+export const plural = (word, number) => {
     return `${word}${number > 1 ? 's' : ''}`;
 }
 
-exports.html = (string) => {
+export const html = (string) => {
     const template = document.createElement('template');
     template.innerHTML = string;
     return template.content;

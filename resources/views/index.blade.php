@@ -31,7 +31,7 @@
                 <span class="flex flex-col md:flex-row md:items-center md:gap-4">Ajoutez vos fichiers <small class="font-thin text-xs text-gray-600">(10 GB max.)</small></span>
             </label>
         </div>
-        <hr>
+        <hr class="text-gray-200">
         <div class="p-4">
             <label for="message" class="block mb-2 font-semibold">Entrez votre message</label>
             <textarea id="message" class="block rounded border-gray-300 w-full text-xs" placeholder="Message optionnel (il est aussi possible de seulement transférer un message)"></textarea>
