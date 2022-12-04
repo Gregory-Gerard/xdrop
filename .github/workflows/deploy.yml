@@ -82,7 +82,7 @@ jobs:
       - name: Rsync
         uses: burnett01/rsync-deployments@5.2.1
         with:
-          switches: -avzr --delete --exclude="artifact.zip" --exclude="node_modules"
+          switches: -avzr --delete --exclude="artifact.zip" --exclude="node_modules" -q
           path: .
           remote_path: ${{ secrets.DEPLOY_PATH }}
           remote_host: ${{ secrets.DEPLOY_HOST }}
