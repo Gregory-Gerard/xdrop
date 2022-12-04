@@ -50,7 +50,7 @@ jobs:
           npm run build
 
       - name: Zip artifact
-        run: zip artifact.zip ./* -r
+        run: zip artifact.zip ./* -r -q
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
@@ -74,4 +74,4 @@ jobs:
           name: app
 
       - name: Unzip artifact
-        run: unzip artifact.zip
+        run: unzip artifact.zip -q
