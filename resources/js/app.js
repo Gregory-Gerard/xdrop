@@ -1,4 +1,4 @@
-require('./bootstrap');
+import './bootstrap';
 const { banner, plural } = require('./helpers');
 
 /** region Page index */
