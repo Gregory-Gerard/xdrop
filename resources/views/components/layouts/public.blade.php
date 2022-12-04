@@ -37,8 +37,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Style -->
-    <link rel="stylesheet" href="{{ asset(mix('/css/app.css')) }}">
+    <!-- Vite -->
+    @vite(['resources/css/app.css', 'resources/js/app.js', "resources/js/pages/{$page}.js"])
+    <script>
+        window.currentPageName = '{{ $page }}';
+    </script>
 </head>
 <body class="grid md:place-items-center mx-4 h-screen font-serif text-sm text-white antialiased bg-gray-900">
 <main class="flex flex-col gap-4 my-4 w-full md:max-w-screen-sm">
@@ -55,8 +58,6 @@
         return `${root}/${url}`;
     }
 </script>
-<script src="{{ asset(mix('/js/app.js')) }}"></script>
-<script>document.dispatchEvent(new CustomEvent('xdrop@page{{ ucfirst($page) }}Loaded'))</script>
 
 @production
     <script async defer data-website-id="2927cb9d-7c65-40b9-8a7c-9548cb26e960" src="https://umami.gregory-gerard.dev:81/630abdb504d2a.js"></script>
