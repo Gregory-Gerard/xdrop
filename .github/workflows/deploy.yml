@@ -77,12 +77,12 @@ jobs:
         run: unzip  -q artifact.zip
 
       - name: Set up .env
-        run: echo ${{ secrets.ENV_FILE }} > .env
+        run: echo ${{ secrets.ENV_FILE }} >> .env
 
       - name: Rsync
         uses: burnett01/rsync-deployments@5.2.1
         with:
-          switches: -avzr --delete --exclude="artifact.zip"
+          switches: -avzr --delete --exclude="artifact.zip" --exclude="node_modules"
           path: .
           remote_path: ${{ secrets.DEPLOY_PATH }}
           remote_host: ${{ secrets.DEPLOY_HOST }}
