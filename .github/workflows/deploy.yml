@@ -94,7 +94,7 @@ jobs:
         with:
           host: ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_USER }}
-          remote_key: ${{ secrets.DEPLOY_KEY }}
+          key: ${{ secrets.DEPLOY_KEY }}
           script: |
             cd ${{ secrets.DEPLOY_PATH }}
             php artisan config:cache
